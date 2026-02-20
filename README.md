@@ -1,73 +1,128 @@
-# Welcome to your Lovable project
+# 🔍 Veritas AI Detect
 
-## Project info
+> **An AI-powered deepfake & AI-generated content detection platform**
 
-**URL**: https://lovable.dev/projects/6faf8c2d-312e-4d7b-80b5-cd71ad3ba1f1
+Veritas AI Detect is a modern web application that analyzes videos — both uploaded files and YouTube/social media links — to detect signs of AI generation, deepfaking, face manipulation, voice synthesis, and other digital manipulation techniques.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🌐 Live Demo
 
-**Use Lovable**
+🔗 [GitHub Repository](https://github.com/MOHDUBES/Veritas-ai-detect-main)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/6faf8c2d-312e-4d7b-80b5-cd71ad3ba1f1) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## ✨ Features
 
-**Use your preferred IDE**
+- 🎥 **YouTube Link Detection** — Paste any YouTube URL and get instant AI analysis
+- 📁 **File Upload Support** — Upload MP4, MOV, AVI, MP3, WAV (up to 100MB)
+- 🔴 **Deepfake Detection** — Identifies AI-generated or manipulated content
+- 📊 **Authenticity Score** — Visual percentage score showing content reliability
+- 🗺️ **Interactive Timeline** — Clickable timeline showing exactly where manipulation was detected
+- 🎬 **Real Video Playback** — Embedded YouTube player with real duration tracking via IFrame API
+- ⚡ **Instant Results** — Fast analysis with animated progress feedback
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🖥️ Screenshots
 
-Follow these steps:
+### Deepfake Detected (Red)
+When AI/deepfake content is identified, the interface switches to a red theme with detailed findings.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Content Authentic (Green)
+When content appears genuine, the interface displays a clean green theme with confidence score.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🛠️ Tech Stack
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+| Technology | Purpose |
+|---|---|
+| **React 18** | Frontend UI framework |
+| **TypeScript** | Type-safe JavaScript |
+| **Vite** | Fast build tool & dev server |
+| **Tailwind CSS** | Utility-first styling |
+| **shadcn/ui** | UI component library |
+| **React Router** | Client-side routing |
+| **ReactPlayer** | Video playback for direct URLs |
+| **YouTube IFrame API** | Real YouTube duration & playback tracking |
+| **Lucide React** | Icon library |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v18 or higher)
+- npm
+
+### Installation
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/MOHDUBES/Veritas-ai-detect-main.git
+
+# 2. Navigate into the project folder
+cd Veritas-ai-detect-main
+
+# 3. Install dependencies
+npm install
+
+# 4. Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The app will be available at `http://localhost:5173`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## 📖 How to Use
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+1. **Go to the Detect page** from the homepage
+2. **Option A — Paste a URL:**
+   - Paste a YouTube link (e.g. `https://youtu.be/...`)
+   - Click **Start Analysis**
+3. **Option B — Upload a file:**
+   - Click **Choose Video or Audio File**
+   - Select your video (MP4, MOV, AVI, etc.)
+   - Click **Start Analysis**
+4. **View Results:**
+   - See the **verdict** (AI Detected / Authentic)
+   - Check the **Authenticity Score**
+   - Explore the **Interactive Timeline** for specific manipulation timestamps
+   - Click any timeline segment to **jump to that moment** in the video
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## 📁 Project Structure
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```
+src/
+├── pages/
+│   ├── Index.tsx        # Homepage / Landing page
+│   ├── Detect.tsx       # Video input & analysis trigger
+│   ├── Results.tsx      # Detection results & video player
+│   └── NotFound.tsx     # 404 page
+├── components/
+│   └── ui/              # shadcn/ui components
+└── main.tsx             # App entry point
+```
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/6faf8c2d-312e-4d7b-80b5-cd71ad3ba1f1) and click on Share -> Publish.
+## ⚠️ Disclaimer
 
-## Can I connect a custom domain to my Lovable project?
+> This project is a **demonstration / portfolio project**. The deepfake detection in its current form uses simulated analysis results for UI/UX purposes. Real deepfake detection would require a trained machine learning model served via a backend API (e.g. Python + TensorFlow/PyTorch).
 
-Yes, you can!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 👤 Author
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+**MOHDUBES**
+- GitHub: [@MOHDUBES](https://github.com/MOHDUBES)
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
