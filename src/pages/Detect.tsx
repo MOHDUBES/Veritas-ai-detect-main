@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "react-router-dom";
@@ -11,6 +11,18 @@ const Detect = () => {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [progress, setProgress] = useState(0);
 
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
+  // Navigate to results when progress hits 100 — moved OUT of setProgress to avoid side-effects in state updater
+  useEffect(() => {
+    if (progress >= 100 && isAnalyzing) {
+      const timer = setTimeout(() => {
+        navigate("/results", { state: { url, file: selectedFile } });
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [progress, isAnalyzing]);
+
   const handleAnalyze = () => {
     if (!url && !selectedFile) {
       toast.error("Please provide a video URL or upload a file");
@@ -20,22 +32,17 @@ const Detect = () => {
     setIsAnalyzing(true);
     setProgress(0);
 
-    // Simulate analysis progress
+    // Simulate analysis progress — only updates state, no side effects here
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-          setTimeout(() => {
-            navigate("/results", { state: { url, file: selectedFile } });
-          }, 500);
           return 100;
         }
         return prev + 10;
       });
     }, 300);
   };
-
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -45,6 +52,7 @@ const Detect = () => {
         return;
       }
       setSelectedFile(file);
+      setUrl(""); // Clear URL when file is selected
       toast.success(`Selected: ${file.name}`);
     }
   };
@@ -95,12 +103,15 @@ const Detect = () => {
                   type="url"
                   placeholder="https://youtube.com/watch?v=... or any social media link"
                   value={url}
-                  onChange={(e) => setUrl(e.target.value)}
+                  onChange={(e) => {
+                    setUrl(e.target.value);
+                    if (e.target.value) setSelectedFile(null); // Clear file when URL is typed
+                  }}
                   className="bg-background/50 border-primary/30 focus:border-primary text-lg h-14"
                   disabled={isAnalyzing}
                 />
                 <p className="text-sm text-muted-foreground mt-3">
-                  Supports: YouTube, Instagram, Facebook, TikTok, Twitter, Snapchat
+                  Supports: YouTube, Facebook, Vimeo, Twitch, DailyMotion, or Direct Video Link (.mp4)
                 </p>
               </div>
 
