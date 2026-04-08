@@ -10,6 +10,21 @@ Veritas AI Detect is a modern web application that analyzes videos — both uplo
 
 🔗 [GitHub Repository](https://github.com/MOHDUBES/Veritas-ai-detect-main)
 
+### 📸 App Screenshots
+
+![Home Page](docs/screenshot-home.png)
+*Home Page Landing*
+
+![Detect Page](docs/screenshot-detect.png)
+*Input Selection (Link/Upload)*
+
+![Analyzing](docs/screenshot-analyzing.png)
+*AI Scan In Progress*
+
+![Results Page](docs/screenshot-results.png)
+*Detailed Results & Timeline*
+
+
 ---
 
 ## ✨ Features
@@ -24,13 +39,13 @@ Veritas AI Detect is a modern web application that analyzes videos — both uplo
 
 ---
 
-## 🖥️ Screenshots
+## 👥 Project Team
 
-### Deepfake Detected (Red)
-When AI/deepfake content is identified, the interface switches to a red theme with detailed findings.
+- **Mohd Ubes** — [mohdubes.official@gmail.com](mailto:mohdubes.official@gmail.com)
+- **Alfez** — [alfez.dev@gmail.com](mailto:alfez.dev@gmail.com)
+- **Abhinav Gupta** — [abhinav.gupta@gmail.com](mailto:abhinav.gupta@gmail.com)
 
-### Content Authentic (Green)
-When content appears genuine, the interface displays a clean green theme with confidence score.
+---
 
 ---
 
@@ -113,13 +128,6 @@ src/
 ## ⚠️ Disclaimer
 
 > This project is a **demonstration / portfolio project**. The deepfake detection in its current form uses simulated analysis results for UI/UX purposes. Real deepfake detection would require a trained machine learning model served via a backend API (e.g. Python + TensorFlow/PyTorch).
-
----
-
-## 👤 Author
-
-**MOHDUBES**
-- GitHub: [@MOHDUBES](https://github.com/MOHDUBES)
 
 ---
 
